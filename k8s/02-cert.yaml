@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: portfolio-production-cert
+  namespace: portfolio
+spec:
+  commonName: gbt55.myddns.me
+  secretName: letsencrypt-production-key
+  dnsNames:
+    - gbt55.myddns.me
+  issuerRef:
+    name: letsencrypt-production
+    kind: ClusterIssuer

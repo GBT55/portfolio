@@ -1,0 +1,41 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: portfolio-ingress-https
+  namespace: portfolio
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`gbt55.myddns.me`)
+      kind: Rule
+      services:
+        - name: portfolio-svc
+          port: 3000
+  tls:
+    secretName: letsencrypt-production-key
+# ---
+# apiVersion: traefik.containo.us/v1alpha1
+# kind: Middleware
+# metadata:
+#   name: https-only
+#   namespace: portfolio
+# spec:
+#   redirectScheme:
+#     scheme: https
+#     permanent: true
+# ---
+# apiVersion: traefik.containo.us/v1alpha1
+# kind: IngressRoute
+# metadata:
+#   name: portfolio-ingress-http
+#   namespace: portfolio
+# spec:
+#   entryPoints:
+#     - web
+#   routes:
+#     - match: Host(`portfolio.gbt.com`)
+#       kind: Rule
+#       services:
+#         - name: portfolio-svc
+#           port: 3000
