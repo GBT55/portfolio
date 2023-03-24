@@ -2,7 +2,7 @@
 
 ## Requirements:
 - Traefik (helm) with CRDS
-- Cert-manager
+- Cert-manager (helm or manifests)
 - Public DNS pointing to the traefik's LB IP; like mine: https://gbt55.myddns.me/
 
 1 - Build (Portfolio)[https://github.com/soumyajit4419/Portfolio] on a Docker Image & upload to hub.docker.com
